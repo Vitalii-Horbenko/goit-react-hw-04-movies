@@ -1,6 +1,6 @@
 import React from "react";
 
-const HomeView = () => {
+const MoviesPage = () => {
   return (
     <div>
       <h1>Some text</h1>
@@ -8,4 +8,4 @@ const HomeView = () => {
   );
 };
 
-export default HomeView;
+export default MoviesPage;

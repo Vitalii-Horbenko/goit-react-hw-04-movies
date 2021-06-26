@@ -1,12 +1,14 @@
 import React from "react";
 import { Route } from "react-router-dom";
 import "./App.css";
-import HomeView from "./views/HomeView";
+import Homepage from "./views/HomePage";
+import MoviesPage from "./views/MoviesPage";
 
-export const App = () => {
+const App = () => (
   <>
-    <Route path="/" component={HomeView} />
-  </>;
-};
+    <Route exact path="/" component={Homepage} />
+    <Route path="/movies" component={MoviesPage} />
+  </>
+);
 
 export default App;
