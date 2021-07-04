@@ -6,3 +6,7 @@
 .NavLink--active {
   color: palevioletred;
 }
+
+img {
+  width: 200px;
+}

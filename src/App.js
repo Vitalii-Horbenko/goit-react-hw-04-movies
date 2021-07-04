@@ -16,7 +16,7 @@ const App = () => (
           className="NavLink"
           activeClassName={styles["NavLink--active"]}
         >
-          Home
+          Главная
         </NavLink>
       </li>
       <li>
@@ -25,12 +25,12 @@ const App = () => (
           className="NavLink"
           activeClassName={styles["NavLink--active"]}
         >
-          Movies
+          Фильмы
         </NavLink>
       </li>
     </ul>
     <Switch>
-      <Route path="/movieId" component={MovieDetailsView} />
+      <Route path="/movies/:movieId" component={MovieDetailsView} />
       <Route path="/movies" component={MoviesView} />
       <Route exact path="/" component={HomeView} />
       <Route component={NotFoundView} />

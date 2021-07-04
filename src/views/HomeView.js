@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link, withRouter } from "react-router-dom";
 import axios from "axios";
 
 class HomeView extends Component {
@@ -8,19 +9,29 @@ class HomeView extends Component {
 
   async componentDidMount() {
     const { data } = await axios.get(
-      "https://api.themoviedb.org/3/trending/movie/day?api_key=b4399c4e538d3bbc9a5c06c5fd657c91"
+      "https://api.themoviedb.org/3/trending/movie/day?api_key=b4399c4e538d3bbc9a5c06c5fd657c91&language=ru"
     );
-    console.log(data);
     this.setState({ movies: data.results });
   }
 
   render() {
     return (
       <>
-        <h1>Homepage</h1>
+        <h1>Trending today</h1>
         <ul>
           {this.state.movies.map((movie) => (
-            <li key={movie.id}>{movie.title}</li>
+            <li key={movie.id}>
+              <Link
+                to={{
+                  pathname: `/movies/${movie.id}`,
+                  state: {
+                    from: this.props.location,
+                  },
+                }}
+              >
+                {movie.title}
+              </Link>
+            </li>
           ))}
         </ul>
       </>
@@ -28,4 +39,4 @@ class HomeView extends Component {
   }
 }
 
-export default HomeView;
+export default withRouter(HomeView);
